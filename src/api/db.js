@@ -17,3 +17,4 @@ export const db = firebase.firestore();
 export const auth = getAuth(app);
 
 export const categories = db.collection('categories');
+export const cards = db.collection('cards');

@@ -5,15 +5,13 @@ import { ROUTES } from '../constants/navigation.constants';
 
 function CategoryCard({ category }) {
   const navigation = useNavigation();
-  const { name, id } = category;
+  const { name } = category;
 
   return (
     <View>
       <Button
         title={name}
-        onPress={() =>
-          navigation.navigate(ROUTES.cards.name, ROUTES.cards.params(id))
-        }
+        onPress={() => navigation.navigate(ROUTES.cards.name, { category })}
       />
       <Divider />
     </View>
