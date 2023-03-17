@@ -1,12 +1,16 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
-export const useModal = () => {
-  const [visible, setVisible] = useState(false);
+export const useModal = (defaultState = false) => {
+  const [visible, setVisible] = useState(defaultState);
+
+  const toggle = useCallback(() => setVisible((prev) => !prev), [setVisible]);
+  const show = useCallback(() => setVisible(true), [setVisible]);
+  const hide = useCallback(() => setVisible(false), [setVisible]);
 
   return {
     visible,
-    toggle: () => setVisible((prev) => !prev),
-    show: () => setVisible(true),
-    hide: () => setVisible(false),
+    toggle,
+    show,
+    hide,
   };
 };

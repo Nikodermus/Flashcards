@@ -1,11 +1,12 @@
 import { useNavigation } from '@react-navigation/native';
-import { Divider } from '@rneui/base';
-import { Button, View } from 'react-native';
+import { Button, Text, View } from 'react-native';
 import { ROUTES } from '../constants/navigation.constants';
+import { useCards } from '../hooks/data';
 
 function CategoryCard({ category }) {
   const navigation = useNavigation();
-  const { name } = category;
+  const { name, id } = category;
+  const cards = useCards(id);
 
   return (
     <View>
@@ -13,7 +14,8 @@ function CategoryCard({ category }) {
         title={name}
         onPress={() => navigation.navigate(ROUTES.cards.name, { category })}
       />
-      <Divider />
+
+      {!!cards.length && <Text>{cards.length} Cards</Text>}
     </View>
   );
 }
