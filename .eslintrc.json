@@ -12,6 +12,8 @@
   },
   "plugins": ["react", "react-native"],
   "rules": {
+    "react/prop-types": "off",
+    "import/prefer-default-export": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": [
       "error",
