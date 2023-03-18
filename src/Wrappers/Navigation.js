@@ -12,7 +12,6 @@ const Stack = createStackNavigator();
 function Navigation() {
   return (
     <NavigationContainer>
-      <View style={{ marginTop: 100 }} />
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name={ROUTES.login} component={Login} />
         <Stack.Screen name={ROUTES.signup} component={SignUp} />
