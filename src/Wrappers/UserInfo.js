@@ -1,10 +1,16 @@
 import { useNavigation } from '@react-navigation/native';
 import { Avatar, BottomSheet, ListItem } from '@rneui/base';
 import { useEffect, useState } from 'react';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { auth } from '../api/db';
 import { ROUTES } from '../constants/navigation.constants';
 import { useUser } from '../hooks/auth';
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 36,
+  },
+});
 
 function UserInfo({ children }) {
   const [user, setUser] = useUser();
@@ -22,12 +28,16 @@ function UserInfo({ children }) {
   }, [user, navigation]);
 
   return (
-    <View>
-      <Avatar
-        rounded
-        containerStyle={{ backgroundColor: '#d34' }}
-        onPress={() => setVisible(true)}
-      />
+    <View style={styles.container}>
+      <View style={styles.avatarContainer}>
+        <Avatar
+          source={{ uri: `https://picsum.photos/seed/${user.uid}/200/200` }}
+          size={60}
+          rounded
+          onPress={() => setVisible(true)}
+          containerStyle={{ alignSelf: 'flex-end' }}
+        />
+      </View>
       <View>{children}</View>
       <BottomSheet
         isVisible={visible}

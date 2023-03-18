@@ -1,6 +1,5 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { View } from 'react-native';
 import { ROUTES } from '../constants/navigation.constants';
 import Cards from '../Screens/Cards.screen';
 import Categories from '../Screens/Categories.screen';

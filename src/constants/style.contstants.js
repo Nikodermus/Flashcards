@@ -3,6 +3,7 @@ export const COLORS = {
   highlight: '#FFE0AC',
   text: '#151515',
   textLight: '#FFFFFF',
+  detail: '#8c8c8c',
 };
 
 export const FONT = {
@@ -12,7 +13,7 @@ export const FONT = {
     color: COLORS.text,
   },
   h2: {
-    fontSize: 32,
+    fontSize: 38,
     fontWeight: 600,
     color: COLORS.main,
   },
@@ -23,7 +24,7 @@ export const FONT = {
   sub: {
     fontSize: 18,
     fontWeight: 400,
-    color: COLORS.text,
+    color: COLORS.detail,
   },
   button: {
     fontWeight: 700,

@@ -1,9 +1,17 @@
 import { FAB, Overlay } from '@rneui/base';
 import { useEffect, useState } from 'react';
-import { Button, Text, TextInput, View } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 import { categories } from '../api/db';
+import { COLORS } from '../constants/style.contstants';
 import { useUser } from '../hooks/auth';
 import { useModal } from '../hooks/modal';
+
+const styles = StyleSheet.create({
+  button: {
+    alignSelf: 'flex-end',
+    marginBottom: 36,
+  },
+});
 
 function AddCategory() {
   const [name, setName] = useState('');
@@ -25,7 +33,13 @@ function AddCategory() {
 
   return (
     <View>
-      <FAB icon={{ name: 'add', color: 'white' }} onPress={show} />
+      <FAB
+        icon={{ name: 'add', color: 'white' }}
+        color={COLORS.highlight}
+        onPress={show}
+        style={styles.button}
+        size="small"
+      />
 
       <Overlay
         isVisible={visible}
