@@ -1,4 +1,4 @@
-import { Button, color, FAB, Overlay } from '@rneui/base';
+import { Button, FAB, Overlay } from '@rneui/base';
 import { useEffect, useState } from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { categories } from '../api/db';

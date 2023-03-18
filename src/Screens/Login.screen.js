@@ -35,15 +35,9 @@ const styles = StyleSheet.create({
     marginBottom: 32,
   },
   button: {
-    button: {
-      ...COMPONENT.button.highlight,
-      marginVertical: 32,
-      marginLeft: '10%',
-    },
-    title: {
-      ...COMPONENT.button.highlight,
-      ...FONT.button,
-    },
+    ...COMPONENT.button.main,
+    marginVertical: 32,
+    marginLeft: '10%',
   },
   link: {
     button: {
@@ -136,8 +130,8 @@ function Login({ navigation }) {
           />
 
           <Button
-            titleStyle={styles.button.title}
-            buttonStyle={styles.button.button}
+            titleStyle={FONT.button}
+            buttonStyle={styles.button}
             title="Login"
             onPress={doLogin}
             disabled={!valid}

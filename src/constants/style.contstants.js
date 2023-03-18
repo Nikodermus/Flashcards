@@ -1,6 +1,8 @@
 export const COLORS = {
   main: '#6886C5',
+  mainDarker: '#4864A1',
   highlight: '#FFE0AC',
+  highlightDarker: '#C7A66E',
   text: '#151515',
   textLight: '#FFFFFF',
   detail: '#8c8c8c',
@@ -18,7 +20,7 @@ export const FONT = {
     color: COLORS.main,
   },
   h3: {
-    fontSize: 24,
+    fontSize: 32,
     fontWeight: 500,
   },
   sub: {

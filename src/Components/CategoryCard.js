@@ -3,6 +3,7 @@ import { TouchableOpacity, Text, StyleSheet, View } from 'react-native';
 import { ROUTES } from '../constants/navigation.constants';
 import { COLORS, FONT } from '../constants/style.contstants';
 import { useCards } from '../hooks/data';
+import { pluralize } from '../utils/text';
 
 const styles = StyleSheet.create({
   card: {
@@ -63,13 +64,14 @@ function CategoryCard({ category, even }) {
     <TouchableOpacity
       onPress={() => navigation.navigate(ROUTES.cards.name, { category })}
       style={[styles.card, customStyle.card]}
+      activeOpacity={0.5}
     >
       <Text style={[styles.title, customStyle.title]}>{name}</Text>
 
       {!!cards.length && (
         <View style={[styles.button, customStyle.button]}>
           <Text style={[styles.buttonText, customStyle.buttonText]}>
-            {cards.length} Cards
+            {pluralize({ noun: 'Card', number: cards.length })}
           </Text>
         </View>
       )}

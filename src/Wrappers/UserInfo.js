@@ -27,6 +27,8 @@ function UserInfo({ children }) {
     if (!user) navigation.navigate(ROUTES.login);
   }, [user, navigation]);
 
+  if (!user) return null;
+
   return (
     <View style={styles.container}>
       <View style={styles.avatarContainer}>
