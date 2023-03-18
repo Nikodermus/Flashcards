@@ -54,12 +54,14 @@ const styles = StyleSheet.create({
   },
 });
 
+const baseState = () => ({
+  email: '',
+  password: '',
+});
+
 function Login({ navigation }) {
   const [user, setUser] = useUser();
-  const [form, setForm] = useState({
-    email: '',
-    password: '',
-  });
+  const [form, setForm] = useState(baseState());
 
   const [valid, setValid] = useState(false);
   const [error, setError] = useState(null);
@@ -77,6 +79,7 @@ function Login({ navigation }) {
       const { code } = loginError;
       setError(MESSAGES[code] || code);
     } else {
+      setForm(baseState());
       auth.currentUser = userCredentials.user;
       setUser(userCredentials.user);
       navigation.navigate(ROUTES.categories);

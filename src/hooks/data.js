@@ -7,6 +7,8 @@ export const useCategories = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
+    if (!user) return () => {};
+
     const query = DBCategories.where('userId', '==', user.uid);
     const unsub = query.onSnapshot((qs) => {
       const results = qs.docs.map((doc) => ({
@@ -18,7 +20,7 @@ export const useCategories = () => {
     });
 
     return unsub;
-  }, [user.uid]);
+  }, [user]);
 
   return categories;
 };
