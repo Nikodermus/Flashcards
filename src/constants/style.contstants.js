@@ -36,16 +36,16 @@ export const COMPONENT = {
   button: {
     main: {
       backgroundColor: COLORS.main,
-      borderRadius: 24,
+      borderRadius: 36,
       color: COLORS.textLight,
-      padding: 12,
+      paddingHorizontal: 12,
       width: '80%',
     },
     highlight: {
       backgroundColor: COLORS.highlight,
-      borderRadius: 24,
+      borderRadius: 36,
       color: COLORS.text,
-      padding: 12,
+      paddingHorizontal: 12,
       width: '80%',
     },
   },

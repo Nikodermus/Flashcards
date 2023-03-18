@@ -1,8 +1,8 @@
-import { FAB, Overlay } from '@rneui/base';
+import { Button, color, FAB, Overlay } from '@rneui/base';
 import { useEffect, useState } from 'react';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { categories } from '../api/db';
-import { COLORS } from '../constants/style.contstants';
+import { COLORS, COMPONENT, FONT } from '../constants/style.contstants';
 import { useUser } from '../hooks/auth';
 import { useModal } from '../hooks/modal';
 
@@ -10,6 +10,33 @@ const styles = StyleSheet.create({
   button: {
     alignSelf: 'flex-end',
     marginBottom: 36,
+  },
+  overlay: {
+    width: '80%',
+    backgroundColor: COLORS.main,
+    padding: 24,
+    borderRadius: 24,
+  },
+  title: {
+    ...FONT.h3,
+    color: COLORS.textLight,
+  },
+  input: {
+    borderBottomColor: COLORS.textLight,
+    borderBottomWidth: 1,
+    color: COLORS.textLight,
+    marginVertical: 24,
+    padding: 12,
+    paddingBottom: 6,
+  },
+  send: {
+    ...COMPONENT.button.highlight,
+    width: '40%',
+    alignSelf: 'flex-end',
+  },
+  sendTitle: {
+    ...FONT.button,
+    color: COLORS.main,
   },
 });
 
@@ -44,17 +71,21 @@ function AddCategory() {
       <Overlay
         isVisible={visible}
         onBackdropPress={hide}
-        overlayStyle={{ backgroundColor: 'white' }}
+        overlayStyle={styles.overlay}
       >
         <View>
-          <Text>Add new category</Text>
+          <Text style={styles.title}>New category</Text>
 
           <TextInput
+            style={styles.input}
             placeholder="Category name..."
             onChangeText={(value) => setName(value)}
             value={name}
+            placeholderTextColor={COLORS.textLight}
           />
           <Button
+            titleStyle={styles.sendTitle}
+            buttonStyle={styles.send}
             title="Add"
             onPress={createCategory}
             disabled={!name.length}
